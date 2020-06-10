@@ -1,9 +1,9 @@
 const pack = document.querySelectorAll('.card');
 const cards = [...pack];
 const moves = document.getElementById('moves');
-
+const restart= document.getElementById('restart');
 // shuffle cards
-
+let movesCount = 0;
 let openedCards = []
 // click cards show, stay shown, close
 const cardOpen =(card) => {
@@ -26,9 +26,9 @@ const matched = () => {
     openedCards = [];
 }
 
-const unmatched= () =>{
-    openedCards[0].classList.toggle('close');
-    openedCards[1].classList.toggle('close');
+const unmatched= () => {
+    openedCards[0].classList.toggle('start');
+    openedCards[1].classList.toggle('start');
     openedCards = [];
 }
 
@@ -36,7 +36,6 @@ const showCard = (event) => {
     event.target.classList.toggle('show');
 }
 for (const card of cards) {card.addEventListener('click', (event) =>{
-    console.log(event.target)
  showCard(event);
  cardOpen(event.target);
 })}
@@ -44,18 +43,44 @@ for (const card of cards) {card.addEventListener('click', (event) =>{
 
 
 // click 2 cards add 1 to moves
-const moveCounter = () => {
-    let movesCount = 0;
+let moveCounter = () => {
     movesCount ++;
     moves.innerHTML= movesCount;
 }
 
-// start game and timer when window open
+//shuffle cards
 
+
+
+
+// const shuffle = (cards) => {
+//     let currentIndex = cards.length, temporaryValue, randomIndex;
+//     while (currentIndex !== 0) {
+//       randomIndex = Math.floor(Math.random() * currentIndex);
+//       currentIndex -= 1;
+//       temporaryValue = cards[currentIndex];
+//       cards[currentIndex] = cards[randomIndex];
+//       cards[randomIndex] = temporaryValue;
+//     }
+//     return cards;
+//   }
+//   const deck = document.querySelector(".deck");
+// const beginGame = () => {
+//    let shuffledCards = shuffle(cards);
+//    for (let i= 0; i < shuffledCards.length; i++){
+//       [].forEach.call(shuffledCards,(item) => {
+//          deck.appendChild(item);
+//       });
+//    }
+// }
+
+
+// start game and timer when window open
 const startGame =()=> {
     const zero = 0,
     display = document.getElementById('timer');
     startTimer(zero, display);
+    // beginGame();
  };
 const startTimer = (duration, display) => {
     let timer = duration, minutes, seconds;
@@ -72,11 +97,11 @@ const startTimer = (duration, display) => {
 }
 
 //restart game
-const restartGame = () =>{
-    timer=0;
-    moves =0;
-}
 
+const restartGame = () =>{restart.addEventListener('click',(event) =>{
+     startGame();
+   })}
+   
 
 // final score
 
@@ -84,41 +109,5 @@ const finalScore = () =>{
     if (matched);
 }
 window.onload= startGame();
+
  //pause
-
-
-
-
-
- // // randomise the cards
-
-// const shuffle(cards) => {
-//     for(let i = cards.length — 1; i > 0; i--) {
-//     const j = Math.floor(Math.random() * i)
-//     const temp = cards[i]
-//     cards[i] = cards[j]
-//     cards[j] = temp
-//   };
-// };
-
-// const shuffle = (cards) => {
-//     let currentIndex = cards.length, temporaryValue, randomIndex;
-//     while (currentIndex !== 0) {
-//       randomIndex = Math.floor(Math.random() * currentIndex);
-//       currentIndex -= 1;
-//       temporaryValue = cards[currentIndex];
-//       cards[currentIndex] = cards[randomIndex];
-//       cards[randomIndex] = temporaryValue;
-//     }
-//     return cards;
-//   }
-
-// const deck = document.querySelector(".deck");
-//     function beginGame(){
-//    let shuffledCards = shuffle(cards);
-//    for (let i= 0; i < shuffledCards.length; i++){
-//       [].forEach.call(shuffledCards, function(item){
-//          deck.appendChild(item);
-//       });
-//    }
-// }

@@ -5,9 +5,17 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+main{
+    //background-image: url('./images/shopkin.jpg');
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
 h1{
     text-align: center;
 }
+
 .menu {
     display: flex;
     flex-direction: row;
@@ -16,38 +24,41 @@ h1{
 }
 
 .cards{
-    height: 80vw;
-    width:80vw;
+    width:95vw;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 2px;
-    margin: 10vw;
+    margin: 5px;
     text-align: center;
+    gap:1px;    
+    // background-color: #f03a9c ;  
 
-   .card {
-        border: red 2px solid;        
-        width: 100px;
-        height: 100px;  
+   .card {  
+        width: 80px;
+        height: 80px;  
+        border:#9acd32 2px solid;
+            
         &:hover {
             cursor: pointer;
         }
     }
 }
 
+.start{
+    
+}
+
 .show {
-    background-color: orange;
+background-color:#ffd700;
 }
 
 .matched{
-    background-color:green;
+background-color:#421558;
     &:hover{
-        cursor: none;
+        pointer-events: none;
     }
 }
 
-.close{
-    background-color: pink;
-}
+
 
 #pause{
     &:hover {
@@ -61,4 +72,15 @@ h1{
     }
 }
 
-@media 
+@media only screen and (min-width:375px) {
+    .cards .card {
+        height: 100px;
+        width: 100px;
+} 
+}
+@media only screen and (min-width:550px) {
+    .cards .card {
+        height: 120px;
+        width: 120px;
+} 
+}
