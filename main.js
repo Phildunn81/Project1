@@ -4,14 +4,15 @@ const moves = document.getElementById('moves');
 
 // shuffle cards
 
-
+let openedCards = []
 // click cards show, stay shown, close
-const cardOpen =() => {
-    openedCards.push(this);
-    let length = openCards.length;
+const cardOpen =(card) => {
+    openedCards.push(card);
+    console.log(openedCards)
+    let length = openedCards.length;
     if(length === 2) {
         moveCounter();
-        if (openedCards[0].type === openedCards[1].type) {
+        if (openedCards[0].alt === openedCards[1].alt) {
             matched();
         } else {
             unmatched();
@@ -19,24 +20,32 @@ const cardOpen =() => {
     }
 };
 
-const matched = () =>{
+const matched = () => {
     openedCards[0].classList.toggle('matched');
     openedCards[1].classList.toggle('matched');
+    openedCards = [];
 }
 
 const unmatched= () =>{
     openedCards[0].classList.toggle('close');
     openedCards[1].classList.toggle('close');
+    openedCards = [];
 }
 
 const showCard = (event) => {  
     event.target.classList.toggle('show');
 }
-for (const card of cards) {card.addEventListener('click', showCard)};
+for (const card of cards) {card.addEventListener('click', (event) =>{
+    console.log(event.target)
+ showCard(event);
+ cardOpen(event.target);
+})}
+    
 
 
 // click 2 cards add 1 to moves
 const moveCounter = () => {
+    let movesCount = 0;
     movesCount ++;
     moves.innerHTML= movesCount;
 }
@@ -50,7 +59,7 @@ const startGame =()=> {
  };
 const startTimer = (duration, display) => {
     let timer = duration, minutes, seconds;
-    setInterval(function () {
+    setInterval( () => {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
         minutes = minutes < 10 ? "0" + minutes : minutes;
