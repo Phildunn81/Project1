@@ -43,6 +43,10 @@ h1{
     }
 }
 
+// img{
+//     object-fit: cover;
+//     opacity:0.5;
+// }
 .start{
     
 }
@@ -70,6 +74,17 @@ background-color:#421558;
     &:hover {
         cursor: pointer;
     }
+}
+
+#congrats{
+    display: none;
+}
+
+.finish{
+    border: 2px red solid;
+    width:200px;
+    height: 200px;
+    display: unset;
 }
 
 @media only screen and (min-width:375px) {

@@ -72,6 +72,17 @@ h1 {
   cursor: pointer;
 }
 
+#congrats {
+  display: none;
+}
+
+.finish {
+  border: 2px red solid;
+  width: 200px;
+  height: 200px;
+  display: unset;
+}
+
 @media only screen and (min-width: 375px) {
   .cards .card {
     height: 100px;
