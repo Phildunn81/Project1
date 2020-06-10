@@ -1,15 +1,53 @@
-// get the html elements
-const card = document.querySelectorAll('a');
-const cards = [...card];
-const reset= document.getElementById('reset');
+const pack = document.querySelectorAll('.card');
+const cards = [...pack];
+const moves = document.getElementById('moves');
 
-//timer, click start to begin
+// shuffle cards
+
+
+// click cards show, stay shown, close
+const cardOpen =() => {
+    openedCards.push(this);
+    let length = openCards.length;
+    if(length === 2) {
+        moveCounter();
+        if (openedCards[0].type === openedCards[1].type) {
+            matched();
+        } else {
+            unmatched();
+        }
+    }
+};
+
+const matched = () =>{
+    openedCards[0].classList.toggle('matched');
+    openedCards[1].classList.toggle('matched');
+}
+
+const unmatched= () =>{
+    openedCards[0].classList.toggle('close');
+    openedCards[1].classList.toggle('close');
+}
+
+const showCard = (event) => {  
+    event.target.classList.toggle('show');
+}
+for (const card of cards) {card.addEventListener('click', showCard)};
+
+
+// click 2 cards add 1 to moves
+const moveCounter = () => {
+    movesCount ++;
+    moves.innerHTML= movesCount;
+}
+
+// start game and timer when window open
+
 const startGame =()=> {
     const zero = 0,
     display = document.getElementById('timer');
     startTimer(zero, display);
  };
-const start = document.getElementById('start').addEventListener('click', startGame);
 const startTimer = (duration, display) => {
     let timer = duration, minutes, seconds;
     setInterval(function () {
@@ -24,18 +62,26 @@ const startTimer = (duration, display) => {
     }, 1000);
 }
 
-
-// add event listener to each card .for each
-const displayCard = () =>{
-    this.classlist.toggle('open');
-    this.classlist.toggle('show');
-    this.classlist.toggle('dontshow');
-    for (const card of cards) {card.addEventListener('click', displayCard)};
-};
-// defualt hide card then when click display card 
+//restart game
+const restartGame = () =>{
+    timer=0;
+    moves =0;
+}
 
 
-// randomise the cards
+// final score
+
+const finalScore = () =>{
+    if (matched);
+}
+window.onload= startGame();
+ //pause
+
+
+
+
+
+ // // randomise the cards
 
 // const shuffle(cards) => {
 //     for(let i = cards.length — 1; i > 0; i--) {
@@ -55,31 +101,15 @@ const displayCard = () =>{
 //       cards[currentIndex] = cards[randomIndex];
 //       cards[randomIndex] = temporaryValue;
 //     }
-//     return array;
+//     return cards;
 //   }
 
 // const deck = document.querySelector(".deck");
 //     function beginGame(){
-//    var shuffledCards = shuffle(cards);
-//    for (var i= 0; i < shuffledCards.length; i++){
+//    let shuffledCards = shuffle(cards);
+//    for (let i= 0; i < shuffledCards.length; i++){
 //       [].forEach.call(shuffledCards, function(item){
 //          deck.appendChild(item);
 //       });
 //    }
 // }
-
-
-//cards match - keep open / cards dont match - hide again
-
-
-
-
-// record one move
-
-
-
-// go again
-
-
-
-// all cards matched - show score and number of moves

@@ -37,15 +37,37 @@ h1 {
   text-align: center;
 }
 
-.cards i {
+.cards .card {
   border: red 2px solid;
-  font-size: 100px;
   width: 100px;
   height: 100px;
-  background-color: yellow;
 }
 
-.open {
+.cards .card:hover {
+  cursor: pointer;
+}
+
+.show {
+  background-color: orange;
+}
+
+.matched {
   background-color: green;
+}
+
+.matched:hover {
+  cursor: none;
+}
+
+.close {
+  background-color: pink;
+}
+
+#pause:hover {
+  cursor: pointer;
+}
+
+#restart:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */

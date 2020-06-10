@@ -24,16 +24,39 @@ h1{
     margin: 10vw;
     text-align: center;
 
-    i{
+   .card {
         border: red 2px solid;        
-        font-size: 100px;
         width: 100px;
-        height: 100px;
-        background-color: yellow;
+        height: 100px;  
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 
-.open {
-    background-color: green;
+.show {
+    background-color: orange;
 }
 
+.matched{
+    background-color:green;
+    &:hover{
+        cursor: none;
+    }
+}
+
+.close{
+    background-color: pink;
+}
+
+#pause{
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+#restart{
+    &:hover {
+        cursor: pointer;
+    }
+}
