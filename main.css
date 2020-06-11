@@ -4,17 +4,45 @@
   padding: 0px;
   -webkit-box-sizing:  border-box;
           box-sizing:  border-box;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: sansita -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  display: inline-block;
 }
 
 main {
-  background-size: cover;
+  background-color: #cd1076;
   height: 100vh;
-  width: 100vw;
+  font-size: 20px;
+  font-weight: bold;
+  color: #421558;
 }
 
-h1 {
+#top {
   text-align: center;
+  background-color: #9acd32;
+  padding: 5px;
+}
+
+.title {
+  font-weight: 900;
+  font-size: 3.5em;
+}
+
+.title .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+button {
+  width: 20vw;
+  height: 4vh;
+  background-color: #ffd700;
+  border-radius: 5px;
+  color: #421558;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .menu {
@@ -28,7 +56,8 @@ h1 {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  padding: 10px;
+  padding: 15px;
+  width: 100vw;
 }
 
 .cards {
@@ -37,15 +66,14 @@ h1 {
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin: 5px;
+  margin: 20px;
   text-align: center;
-  gap: 1px;
+  gap: 5px;
 }
 
 .cards .card {
-  width: 80px;
-  height: 80px;
-  border: #9acd32 2px solid;
+  border: #9acd32 4px solid;
+  border-radius: 10px;
 }
 
 .cards .card:hover {
@@ -53,11 +81,7 @@ h1 {
 }
 
 .show {
-  background-color: #ffd700;
-}
-
-.matched {
-  background-color: #421558;
+  pointer-events: none;
 }
 
 .matched:hover {
@@ -77,7 +101,8 @@ h1 {
 }
 
 .finish {
-  border: 2px red solid;
+  border: 2px #9acd32 solid;
+  background-color: #ffd700;
   width: 200px;
   height: 200px;
   display: unset;

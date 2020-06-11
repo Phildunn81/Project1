@@ -3,11 +3,24 @@ const cards = [...pack];
 const moves = document.getElementById('moves');
 const restart = document.getElementById('restart');
 
+const shopkinsImage = {
+    card1: "./images/banan.jpg",
+    card2: "./images/tissue.jpg",
+    card3: "./images/ice.png",
+    card4: "./images/cake.jpg",
+    card5: "./images/lip.png",
+    card6: "./images/pan.png",
+    card7: "./images/apple.jpg",
+    card8: "./images/donut.jpg",
+    
+}
+
 // shuffle cards
+let openedCards = [];
 let match = 1;
 let totalMatched = [];
 let movesCount = 0;
-let openedCards = [];
+
 // click cards show, stay shown, close
 const cardOpen =(card) => {
     openedCards.push(card);
@@ -16,7 +29,7 @@ const cardOpen =(card) => {
         moveCounter();
         if (openedCards[0].alt === openedCards[1].alt) {
             matched();
-            totalMatched.push(match);
+            totalMatched.push();
         } else {
             unmatched();
         }
@@ -32,29 +45,25 @@ const matched = () => {
 const unmatched= () => {
     openedCards[0].classList.toggle('start');
     openedCards[1].classList.toggle('start');
+    openedCards[0].src= "./images/shopkin.jpg";
+    openedCards[1].src= "./images/shopkin.jpg";
     openedCards = [];
 }
 
-const showCard = (event) => {  
-    event.target.classList.toggle('show');
+const showCard = (event) => { 
+    event.target.src = shopkinsImage[event.target.alt]
+    console.log(event.target.alt)
 }
+
 for (const card of cards) {card.addEventListener('click', (event) =>{
  showCard(event);
  cardOpen(event.target);
 })}
     
-
-
-// click 2 cards add 1 to moves
 let moveCounter = () => {
     movesCount ++;
     moves.innerHTML= movesCount;
 }
-
-//shuffle cards
-
-
-
 
 const shuffle = (cards) => {
     let currentIndex = cards.length, temporaryValue, randomIndex;
@@ -67,28 +76,34 @@ const shuffle = (cards) => {
     }
     return cards;
   }
-  const deck = document.querySelector(".deck");
-const beginGame = () => {
-   let shuffledCards = shuffle(cards);
-   for (let i= 0; i < shuffledCards.length; i++){
-      [].forEach.call(shuffledCards,(item) => {
-         deck.appendChild(item);
-      });
-   }
+
+const gameArea = document.querySelector(".cards");
+const cardsInHtml = (cards) => {
+    gameArea.innerHTML = "";
+    cards.forEach(card => {
+        gameArea.appendChild(card);
+    })
 }
 
 
-// start game and timer when window open
+const beginGame = () => {
+   let shuffledCards = shuffle(cards);
+    cardsInHtml(shuffledCards);
+}
+
+ 
 const startGame =()=> {
-    let zero = 0,
+    let timeout
+    let zero = 0;
     display = document.getElementById('timer');
     movesCount = 0;
+    clearInterval(timeout);
     startTimer(zero, display);
-    // beginGame();
+    beginGame();
  };
 const startTimer = (duration, display) => {
     let timer = duration, minutes, seconds;
-    setInterval( () => {
+    timeout = setInterval( () => {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
         minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -100,20 +115,34 @@ const startTimer = (duration, display) => {
     }, 1000);
 }
 
-    
-//restart game
-
-const restartGame = () =>{restart.addEventListener('click',startGame())};
+const restartGame = () =>{restart.addEventListener('click',startGame)};
    
-
-// final score
 let finalScore = () => {
-    if (totalMatched.length = 8)
+    if (totalMatched.length === 8)
     document.querySelector('congrats').classList.toggle('finish');
     document.createTextNode(`Congrats you finished in ${'movesCount.textContet'} moves and a time of ${'timer'}`);
-    console.log("yay");
+    // document.getElementById("myAudio");
 };
 
 window.onload= startGame();
 
  //pause
+const textWrapper = document.querySelector('.title');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.title .letter',
+    scale: [4,1],
+    opacity: [0,1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration: 950,
+    delay: (el, i) => 100*i
+  }).add({
+    targets: '.title',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 8000
+  });
