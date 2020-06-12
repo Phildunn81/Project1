@@ -12,16 +12,19 @@ const shopkinsImage = {
     card6: "./images/pan.png",
     card7: "./images/apple.jpg",
     card8: "./images/donut.jpg",
+    card9: "./images/toast.jpg",
+    card10: "./images/strawberry.jpg",
+    card11: "./images/pineapple.jpg",
+    card12: "./images/cupcake.jpg",
     
 }
 
-// shuffle cards
 let openedCards = [];
 let match = 1;
 let totalMatched = [];
 let movesCount = 0;
-
-// click cards show, stay shown, close
+let timeout;
+// loop through cards
 const cardOpen =(card) => {
     openedCards.push(card);
     let length = openedCards.length;
@@ -43,11 +46,11 @@ const matched = () => {
 }
 
 const unmatched= () => {
-    openedCards[0].classList.toggle('start');
-    openedCards[1].classList.toggle('start');
+    setTimeout(() => {
     openedCards[0].src= "./images/shopkin.jpg";
     openedCards[1].src= "./images/shopkin.jpg";
     openedCards = [];
+},1000);
 }
 
 const showCard = (event) => { 
@@ -60,7 +63,7 @@ for (const card of cards) {card.addEventListener('click', (event) =>{
  cardOpen(event.target);
 })}
     
-let moveCounter = () => {
+const moveCounter = () => {
     movesCount ++;
     moves.innerHTML= movesCount;
 }
@@ -75,7 +78,7 @@ const shuffle = (cards) => {
       cards[randomIndex] = temporaryValue;
     }
     return cards;
-  }
+}
 
 const gameArea = document.querySelector(".cards");
 const cardsInHtml = (cards) => {
@@ -85,22 +88,20 @@ const cardsInHtml = (cards) => {
     })
 }
 
-
-const beginGame = () => {
-   let shuffledCards = shuffle(cards);
-    cardsInHtml(shuffledCards);
-}
-
- 
 const startGame =()=> {
-    let timeout
     let zero = 0;
     display = document.getElementById('timer');
-    movesCount = 0;
     clearInterval(timeout);
     startTimer(zero, display);
-    beginGame();
- };
+    beginGame();  
+    moves = 0;
+};
+
+const beginGame = () => {
+    let shuffledCards = shuffle(cards);
+     cardsInHtml(shuffledCards);
+}
+ 
 const startTimer = (duration, display) => {
     let timer = duration, minutes, seconds;
     timeout = setInterval( () => {
@@ -114,35 +115,35 @@ const startTimer = (duration, display) => {
         }
     }, 1000);
 }
-
-const restartGame = () =>{restart.addEventListener('click',startGame)};
    
-let finalScore = () => {
-    if (totalMatched.length === 8)
+const finalScore = () => {
+    if (totalMatched.length === 12)
     document.querySelector('congrats').classList.toggle('finish');
     document.createTextNode(`Congrats you finished in ${'movesCount.textContet'} moves and a time of ${'timer'}`);
     // document.getElementById("myAudio");
 };
 
-window.onload= startGame();
+restart.addEventListener('click', startGame);
+
+startGame();
 
  //pause
-const textWrapper = document.querySelector('.title');
-textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+// const textWrapper = document.querySelector('.title');
+// textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
-anime.timeline({loop: true})
-  .add({
-    targets: '.title .letter',
-    scale: [4,1],
-    opacity: [0,1],
-    translateZ: 0,
-    easing: "easeOutExpo",
-    duration: 950,
-    delay: (el, i) => 100*i
-  }).add({
-    targets: '.title',
-    opacity: 0,
-    duration: 1000,
-    easing: "easeOutExpo",
-    delay: 8000
-  });
+// anime.timeline({loop: true})
+//   .add({
+//     targets: '.title .letter',
+//     scale: [4,1],
+//     opacity: [0,1],
+//     translateZ: 0,
+//     easing: "easeOutExpo",
+//     duration: 950,
+//     delay: (el, i) => 100*i
+//   }).add({
+//     targets: '.title',
+//     opacity: 0,
+//     duration: 1000,
+//     easing: "easeOutExpo",
+//     delay: 8000
+//   });
