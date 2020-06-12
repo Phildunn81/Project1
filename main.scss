@@ -105,6 +105,9 @@ pointer-events: none;
         height: 70px;
         width: 70px;
 } 
+.cards{
+    margin-left:30px;
+}
 }
 @media only screen and (min-width:425px) {
     .cards .card {
@@ -127,6 +130,7 @@ pointer-events: none;
 } 
 .cards{    
     width:500px;
+    margin-left:55px;
 }
 
 .menu{    
@@ -171,9 +175,9 @@ width:90vw;
 }
 
 @media only screen and (min-width:950px) {
-    .cards .card {
-        height: 180px;
-        width: 180px;
+.cards .card {
+        height: 170px;
+        width: 170px;
 } 
 .cards{    
     width:95vw;
@@ -186,14 +190,18 @@ width:95vw;
 button{
     font-size: 20px;;
 }
+main{
+    height:2000px;
 }
-@media only screen and (min-width:0124px) {
-    .cards .card {
-        height: 210px;
-        width: 210px;
-} 
+}
+@media only screen and (min-width:1024px) {
+.cards .card {
+        height: 150px;
+        width: 150px;
+}
 .cards{    
-    width:95vw;
+    width:90vw;
+    margin-left:60px;
 }
 
 .menu{    
@@ -204,6 +212,7 @@ button{
     font-size: 21px;
     padding:-2px;
 }
+
 }
 @media only screen and (min-width:1440px) {
     .cards .card {

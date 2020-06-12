@@ -14,9 +14,8 @@ const shopkinsImage = {
     card8: "./images/donut.jpg",
     card9: "./images/toast.jpg",
     card10: "./images/strawberry.jpg",
-    card11: "./images/pineapple.jpg",
-    card12: "./images/cupcake.jpg",
-    
+    // card11: "./images/pineapple.jpg",
+    // card12: "./images/cupcake.jpg",
 }
 
 let openedCards = [];
@@ -89,12 +88,13 @@ const cardsInHtml = (cards) => {
 }
 
 const startGame =()=> {
+    moves.innerHTML = 0;
     let zero = 0;
     display = document.getElementById('timer');
     clearInterval(timeout);
     startTimer(zero, display);
     beginGame();  
-    moves = 0;
+    
 };
 
 const beginGame = () => {
@@ -117,7 +117,7 @@ const startTimer = (duration, display) => {
 }
    
 const finalScore = () => {
-    if (totalMatched.length === 12)
+    if (totalMatched.length === 10)
     document.querySelector('congrats').classList.toggle('finish');
     document.createTextNode(`Congrats you finished in ${'movesCount.textContet'} moves and a time of ${'timer'}`);
     // document.getElementById("myAudio");

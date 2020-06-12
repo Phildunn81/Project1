@@ -111,6 +111,9 @@ button {
     height: 70px;
     width: 70px;
   }
+  .cards {
+    margin-left: 30px;
+  }
 }
 
 @media only screen and (min-width: 425px) {
@@ -133,6 +136,7 @@ button {
   }
   .cards {
     width: 500px;
+    margin-left: 55px;
   }
   .menu {
     width: 500px;
@@ -177,8 +181,8 @@ button {
 
 @media only screen and (min-width: 950px) {
   .cards .card {
-    height: 180px;
-    width: 180px;
+    height: 170px;
+    width: 170px;
   }
   .cards {
     width: 95vw;
@@ -189,15 +193,19 @@ button {
   button {
     font-size: 20px;
   }
+  main {
+    height: 2000px;
+  }
 }
 
-@media only screen and (min-width: 124px) {
+@media only screen and (min-width: 1024px) {
   .cards .card {
-    height: 210px;
-    width: 210px;
+    height: 150px;
+    width: 150px;
   }
   .cards {
-    width: 95vw;
+    width: 90vw;
+    margin-left: 60px;
   }
   .menu {
     width: 95vw;
