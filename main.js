@@ -2,6 +2,7 @@ const pack = document.querySelectorAll('.card');
 const cards = [...pack];
 const moves = document.getElementById('moves');
 const restart = document.getElementById('restart');
+const display = document.getElementById('timer');
 
 const shopkinsImage = {
     card1: "./images/banan.jpg",
@@ -19,10 +20,10 @@ const shopkinsImage = {
 }
 
 let openedCards = [];
-let match = 1;
 let totalMatched = [];
 let movesCount = 0;
 let timeout;
+let zero = 0;
 // loop through cards
 const cardOpen =(card) => {
     openedCards.push(card);
@@ -31,42 +32,42 @@ const cardOpen =(card) => {
         moveCounter();
         if (openedCards[0].alt === openedCards[1].alt) {
             matched();
-            totalMatched.push();
+            totalMatch();
         } else {
             unmatched();
         }
     }
 };
-
+//matched function
 const matched = () => {
     openedCards[0].classList.toggle('matched');
     openedCards[1].classList.toggle('matched');
     openedCards = [];
 }
-
+//unmatched function with a delay
 const unmatched= () => {
     setTimeout(() => {
     openedCards[0].src= "./images/shopkin.jpg";
     openedCards[1].src= "./images/shopkin.jpg";
     openedCards = [];
-},1000);
+},400);
 }
-
+//matches the object of images with the alt description in html for the cards thats targeted
 const showCard = (event) => { 
     event.target.src = shopkinsImage[event.target.alt]
-    console.log(event.target.alt)
 }
-
+//loops through cards and asigns a eventlistner that triggers image change and the cardopen logic above
 for (const card of cards) {card.addEventListener('click', (event) =>{
  showCard(event);
  cardOpen(event.target);
 })}
-    
+//counts the moves stored in moves count variable and displayed in moves html
 const moveCounter = () => {
     movesCount ++;
     moves.innerHTML= movesCount;
 }
 
+// shuffles card
 const shuffle = (cards) => {
     let currentIndex = cards.length, temporaryValue, randomIndex;
     while (currentIndex !== 0) {
@@ -78,7 +79,7 @@ const shuffle = (cards) => {
     }
     return cards;
 }
-
+// puts shuffled cards back into the html grid
 const gameArea = document.querySelector(".cards");
 const cardsInHtml = (cards) => {
     gameArea.innerHTML = "";
@@ -86,22 +87,20 @@ const cardsInHtml = (cards) => {
         gameArea.appendChild(card);
     })
 }
-
+// starts the game off
 const startGame =()=> {
-    moves.innerHTML = 0;
-    let zero = 0;
-    display = document.getElementById('timer');
+    // cards.forEach(()card.src="./images/shopkin.jpg");
+    moves.innerHTML =0;
     clearInterval(timeout);
     startTimer(zero, display);
     beginGame();  
-    
 };
-
+// 
 const beginGame = () => {
     let shuffledCards = shuffle(cards);
      cardsInHtml(shuffledCards);
 }
- 
+ // strats the timer
 const startTimer = (duration, display) => {
     let timer = duration, minutes, seconds;
     timeout = setInterval( () => {
@@ -115,35 +114,27 @@ const startTimer = (duration, display) => {
         }
     }, 1000);
 }
-   
-const finalScore = () => {
-    if (totalMatched.length === 10)
-    document.querySelector('congrats').classList.toggle('finish');
-    document.createTextNode(`Congrats you finished in ${'movesCount.textContet'} moves and a time of ${'timer'}`);
-    // document.getElementById("myAudio");
+
+    const totalMatch = (match) => {
+        totalMatched.push(match);
+        let leng = totalMatched.length;
+        if(leng > 0) {
+            alert(`Congratulations it took you this time ${display.textContent} and ${movesCount} moves to complete`);
+        console.log(totalMatched.length);
+    }
 };
 
+    
+    // document.createTextNode(`Congrats you finished in ${'movesCount.textContet'} moves and a time of ${'timer'}`);
+    // document.getElementById("myAudio");
+    // new Audio
+
+
 restart.addEventListener('click', startGame);
+
 
 startGame();
 
  //pause
 // const textWrapper = document.querySelector('.title');
 // textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-
-// anime.timeline({loop: true})
-//   .add({
-//     targets: '.title .letter',
-//     scale: [4,1],
-//     opacity: [0,1],
-//     translateZ: 0,
-//     easing: "easeOutExpo",
-//     duration: 950,
-//     delay: (el, i) => 100*i
-//   }).add({
-//     targets: '.title',
-//     opacity: 0,
-//     duration: 1000,
-//     easing: "easeOutExpo",
-//     delay: 8000
-//   });

@@ -51,7 +51,7 @@ button {
     width:320px;;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin: 10px;
+    margin-left: 1px;
     text-align: center;
     gap:3px;    
     // background-color: #f03a9c ;  
@@ -106,7 +106,7 @@ pointer-events: none;
         width: 70px;
 } 
 .cards{
-    margin-left:30px;
+    margin-left:5px;
 }
 }
 @media only screen and (min-width:425px) {
@@ -123,6 +123,16 @@ pointer-events: none;
     width:390px;
 }
 }
+@media only screen and (min-width:490px) {
+    .cards .card {
+        height: 90px;
+        width: 90px;
+} 
+
+    .cards{    
+        margin-left: 8px;
+}
+}
 @media only screen and (min-width:550px) {
     .cards .card {
         height: 110px;
@@ -130,7 +140,7 @@ pointer-events: none;
 } 
 .cards{    
     width:500px;
-    margin-left:55px;
+    margin-left:10px;
 }
 
 .menu{    
@@ -166,7 +176,8 @@ width:85vw;
         width: 140px;
 } 
 .cards{    
-    width:90vw;
+    width:80vw;
+    margin-left: 40px;
 }
 
 .menu{    
@@ -180,11 +191,11 @@ width:90vw;
         width: 170px;
 } 
 .cards{    
-    width:95vw;
+    margin-left: 45px;
 }
 
 .menu{    
-width:95vw;
+width:85vw;
 }
 
 button{
@@ -196,16 +207,11 @@ main{
 }
 @media only screen and (min-width:1024px) {
 .cards .card {
-        height: 150px;
-        width: 150px;
+        height: 160px;
+        width: 160px;
 }
 .cards{    
-    width:90vw;
-    margin-left:60px;
-}
-
-.menu{    
-width:95vw;
+    margin-left:100px;
 }
 
 button{
@@ -216,11 +222,11 @@ button{
 }
 @media only screen and (min-width:1440px) {
     .cards .card {
-        height: 270px;
-        width: 270px;
+        height: 200px;
+        width: 200px;
 } 
 .cards{    
-    width:95vw;
+    margin-left:160px;
 }
 
 .menu{    
