@@ -55,6 +55,7 @@ const unmatched= () => {
 //matches the object of images with the alt description in html for the cards thats targeted
 const showCard = (event) => { 
     event.target.src = shopkinsImage[event.target.alt]
+    // event.target.classList.toggle('test');
 }
 //loops through cards and asigns a eventlistner that triggers image change and the cardopen logic above
 for (const card of cards) {card.addEventListener('click', (event) =>{
@@ -89,13 +90,20 @@ const cardsInHtml = (cards) => {
 }
 // starts the game off
 const startGame =()=> {
-    // cards.forEach(()card.src="./images/shopkin.jpg");
+    // cards.forEach(()card.);
     moves.innerHTML =0;
     clearInterval(timeout);
     startTimer(zero, display);
     beginGame();  
+    changeImageBack();
 };
-// 
+
+const changeImageBack = () => {
+    cards.forEach(card=> { 
+        card.src = "./images/shopkin.jpg";
+    });
+};
+   // 
 const beginGame = () => {
     let shuffledCards = shuffle(cards);
      cardsInHtml(shuffledCards);
@@ -118,7 +126,7 @@ const startTimer = (duration, display) => {
     const totalMatch = (match) => {
         totalMatched.push(match);
         let leng = totalMatched.length;
-        if(leng > 0) {
+        if(leng > 0) { //modal
             alert(`Congratulations it took you this time ${display.textContent} and ${movesCount} moves to complete`);
         console.log(totalMatched.length);
     }
