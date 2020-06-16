@@ -3,6 +3,7 @@ const cards = [...pack];
 const moves = document.getElementById('moves');
 const restart = document.getElementById('restart');
 const display = document.getElementById('timer');
+const modal = document.querySelector('modal');
 
 const shopkinsImage = {
     card1: "./images/banan.jpg",
@@ -126,9 +127,15 @@ const startTimer = (duration, display) => {
     const totalMatch = (match) => {
         totalMatched.push(match);
         let leng = totalMatched.length;
-        if(leng > 0) { //modal
-            alert(`Congratulations it took you this time ${display.textContent} and ${movesCount} moves to complete`);
-        console.log(totalMatched.length);
+        if(leng > 0) { 
+            modal.style.display = "block";
+        }
+        // (`Congratulations it took you this time ${display.textContent} and ${movesCount} moves to complete`);
+};
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
     }
 };
 
