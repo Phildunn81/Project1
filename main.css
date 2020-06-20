@@ -62,7 +62,7 @@ button {
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin-left: 1px;
+  margin-left: 5px;
   text-align: center;
   gap: 3px;
 }
@@ -108,33 +108,46 @@ button {
 
 .modal {
   display: none;
-  /* Hidden by default */
   position: fixed;
-  /* Stay in place */
   z-index: 1;
-  /* Sit on top */
-  padding-top: 100px;
-  /* Location of the box */
+  padding-top: 80px;
+  border: solid #421558 5px;
   left: 0;
   top: 0;
   width: 100%;
-  /* Full width */
   height: 100%;
-  /* Full height */
   overflow: auto;
-  /* Enable scroll if needed */
-  background-color: black;
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #ffd700 0, 0, 0;
+  background-color: #421558 0, 0, 0, 0.4;
   /* Black w/ opacity */
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: #ffd700;
   margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
+  padding: 25px;
+  border: 1px solid #421558;
+  border-radius: 20px;
+  height: 25%;
   width: 80%;
+  color: #421558;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.close {
+  color: #cd1076;
+  float: right;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #9acd32;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 375px) {
@@ -143,7 +156,7 @@ button {
     width: 70px;
   }
   .cards {
-    margin-left: 5px;
+    margin-left: 25px;
   }
 }
 
@@ -166,7 +179,7 @@ button {
     width: 90px;
   }
   .cards {
-    margin-left: 8px;
+    margin-left: 40px;
   }
 }
 
@@ -177,7 +190,7 @@ button {
   }
   .cards {
     width: 500px;
-    margin-left: 10px;
+    margin-left: 30px;
   }
   .menu {
     width: 500px;
@@ -194,9 +207,17 @@ button {
   }
   .cards {
     width: 85vw;
+    margin-left: 35px;
   }
   .menu {
     width: 85vw;
+  }
+  .modal-content {
+    padding: 40px;
+    font-size: 36px;
+  }
+  .close {
+    font-size:  35px;
   }
 }
 
@@ -214,10 +235,18 @@ button {
   }
   .cards {
     width: 80vw;
-    margin-left: 40px;
+    margin-left: 75px;
   }
   .menu {
     width: 90vw;
+  }
+  .modal-content {
+    padding: 50px;
+    font-size: 46px;
+    height: 30%;
+  }
+  .close {
+    font-size:  35px;
   }
 }
 
@@ -227,16 +256,25 @@ button {
     width: 170px;
   }
   .cards {
-    margin-left: 45px;
+    margin-left: 95px;
   }
   .menu {
-    width: 85vw;
+    width: 95vw;
   }
   button {
     font-size: 20px;
+    height: 40px;
   }
   main {
     height: 2000px;
+  }
+  .modal-content {
+    padding: 50px;
+    font-size: 46px;
+    height: 30%;
+  }
+  .close {
+    font-size:  35px;
   }
 }
 
@@ -246,11 +284,22 @@ button {
     width: 160px;
   }
   .cards {
-    margin-left: 100px;
+    margin-left: 120px;
+  }
+  .menu {
+    width: 97vw;
   }
   button {
     font-size: 21px;
     padding: -2px;
+  }
+  .modal-content {
+    padding: 70px;
+    font-size: 56px;
+    height: 30%;
+  }
+  .close {
+    font-size:  65px;
   }
 }
 
@@ -260,7 +309,7 @@ button {
     width: 200px;
   }
   .cards {
-    margin-left: 160px;
+    margin-left: 175px;
   }
   .menu {
     width: 95vw;

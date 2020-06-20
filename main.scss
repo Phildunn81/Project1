@@ -5,28 +5,28 @@
     font-family: sansita -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-main{
-    background-color: 	#cd1076;
+main {
+    background-color: #cd1076;
     height:100vh;
     font-weight: bold;
     color:#421558 ;
 }
 
- #top {
+#top {
     text-align: center;
     background-color:#9acd32 ;
-    padding:5px;
- }
+    padding:5px;    
+}
 
-  .title {
-    font-weight: 900;
-    font-size: 2.5em;
-  }
-  
-  .title .letter {
-    display: inline-block;
-    line-height: 1em;
-  }
+.title {
+  font-weight: 900;
+  font-size: 2.5em;
+}
+
+.title .letter {
+  display: inline-block;
+  line-height: 1em;
+}
 
 button {
     width:15vw;
@@ -51,10 +51,9 @@ button {
     width:320px;;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-left: 1px;
+    margin-left: 5px;
     text-align: center;
     gap:3px;    
-    // background-color: #f03a9c ;  
 
    .card {  
         border:#9acd32 4px solid;
@@ -71,29 +70,29 @@ button {
 pointer-events: none;
 }
 
-.matched{
-    &:hover{
+.matched {
+    &:hover {
         pointer-events: none;
     }
 }
 
-#pause{
+#pause {
     &:hover {
         cursor: pointer;
     }
 }
 
-#restart{
+#restart {
     &:hover {
         cursor: pointer;
     }
 }
 
-#congrats{
+#congrats {
     display: none;
 }
 
-.finish{
+.finish {
     border: 2px #9acd32 solid;
     background-color: #ffd700;
     width:200px;
@@ -102,162 +101,229 @@ pointer-events: none;
 }
 
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 80px;
+    border: solid #421558 5px; 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
+    background-color: #ffd700 (0,0,0); 
+    background-color: #421558(0,0,0,0.4); /* Black w/ opacity */
+}
 
-  .modal-content {
-    background-color: #fefefe;
+.modal-content {
+    background-color: #ffd700;
     margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
+    padding: 25px;
+    border: 1px solid #421558;
+    border-radius: 20px;
+    height: 25%;
     width: 80%;
-  }
+    color: #421558;
+    font-size:26px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.close {
+    color:#cd1076 ;
+    float: right;
+    font-size: 45px;
+    font-weight: bold;
+}
   
+.close:hover,
+.close:focus {
+  color: #9acd32;
+  text-decoration: none;
+  cursor: pointer;
+}
 @media only screen and (min-width:375px) {
     .cards .card {
         height: 70px;
         width: 70px;
-} 
-.cards{
-    margin-left:5px;
-}
+    } 
+    .cards {
+        margin-left:25px;
+    }
 }
 @media only screen and (min-width:425px) {
     .cards .card {
         height: 80px;
         width: 80px;
-} 
+    } 
 
-    .cards{    
-        width:380px;
-}
+    .cards {    
+            width:380px;
+    }
 
-    .menu{    
-    width:390px;
-}
+        .menu {    
+        width:390px;
+    }
 }
 @media only screen and (min-width:490px) {
     .cards .card {
         height: 90px;
         width: 90px;
-} 
+    } 
 
-    .cards{    
-        margin-left: 8px;
-}
+    .cards {    
+        margin-left: 40px;
+    }
 }
 @media only screen and (min-width:550px) {
     .cards .card {
         height: 110px;
         width: 110px;
-} 
-.cards{    
+    } 
+
+    .cards {    
+        width:500px;
+        margin-left:30px;
+    }
+
+    .menu {    
     width:500px;
-    margin-left:10px;
-}
+    }
 
-.menu{    
-width:500px;
-}
-
-button{
-    font-size: 15px;;
-}
-}
+    button{
+        font-size: 15px;;
+    }
+    }
 @media only screen and (min-width:600px) {
     .cards .card {
         height: 120px;
         width: 120px;
-} 
-.cards{    
-    width:85vw;
-}
+    } 
+    .cards {    
+        width:85vw;
+        margin-left: 35px;
+    }
 
-.menu{    
-width:85vw;
-}
+    .menu {    
+    width:85vw;
+    }
+
+    .modal-content{
+        padding: 40px;
+        font-size: 36px;
+        }
+
+    .close {
+        font-size: 35px;
+        }
 }
 @media only screen and (min-width:650px) {
     .cards .card {
         height: 135px;
         width: 135px;
-} 
+    } 
 }
 @media only screen and (min-width:760px) {
     .cards .card {
         height: 140px;
         width: 140px;
-} 
-.cards{    
-    width:80vw;
-    margin-left: 40px;
-}
+    } 
 
-.menu{    
-width:90vw;
-}
-}
+    .cards {    
+        width:80vw;
+        margin-left: 75px;
+    }
 
+    .menu {    
+    width:90vw;
+    }
+
+    .modal-content {
+        padding: 50px;
+        font-size: 46px;
+        height: 30%;
+    }
+
+    .close {
+        font-size: 35px;
+    }
+}
 @media only screen and (min-width:950px) {
-.cards .card {
-        height: 170px;
-        width: 170px;
-} 
-.cards{    
-    margin-left: 45px;
-}
+    .cards .card {
+            height: 170px;
+            width: 170px;
+    } 
+    .cards {    
+        margin-left: 95px;
+    }
 
-.menu{    
-width:85vw;
-}
+    .menu {    
+    width:95vw;
+    }
 
-button{
-    font-size: 20px;;
-}
-main{
-    height:2000px;
-}
+    button {
+        font-size: 20px;
+        height: 40px;
+    }
+
+    main {
+        height:2000px;
+    }
+
+    .modal-content {
+        padding: 50px;
+        font-size: 46px;
+        height: 30%;
+        }
+    
+    .close {
+        font-size: 35px;
+        }
 }
 @media only screen and (min-width:1024px) {
-.cards .card {
+    .cards .card {
         height: 160px;
         width: 160px;
-}
-.cards{    
-    margin-left:100px;
-}
+    }
 
-button{
-    font-size: 21px;
-    padding:-2px;
-}
+    .cards {    
+        margin-left:120px;
+    }
 
+    .menu {    
+        width:97vw;
+    }
+
+    button {
+        font-size: 21px;
+        padding:-2px;
+    }
+    .modal-content {
+        padding: 70px;
+        font-size: 56px;
+        height: 30%;
+        }
+    
+    .close {
+        font-size: 65px;
+        }
 }
 @media only screen and (min-width:1440px) {
     .cards .card {
         height: 200px;
         width: 200px;
-} 
-.cards{    
-    margin-left:160px;
-}
+    } 
 
-.menu{    
-width:95vw;
-}
+    .cards{    
+        margin-left:175px;
+    }
 
-button{
-    font-size: 23px;
-    height:40px;
-}
+    .menu{    
+    width:95vw;
+    }
+
+    button{
+        font-size: 23px;
+        height:40px;
+    }
 }
