@@ -113,6 +113,7 @@ pointer-events: none;
     overflow: auto; 
     background-color: #ffd700 (0,0,0); 
     background-color: #421558(0,0,0,0.4); /* Black w/ opacity */
+    text-align: center;
 }
 
 .modal-content {
@@ -122,7 +123,7 @@ pointer-events: none;
     border: 1px solid #421558;
     border-radius: 20px;
     height: 25%;
-    width: 80%;
+    width: 67%;
     color: #421558;
     font-size:26px;
     font-weight: bold;
@@ -132,7 +133,7 @@ pointer-events: none;
 .close {
     color:#cd1076 ;
     float: right;
-    font-size: 45px;
+    font-size: 46px;
     font-weight: bold;
 }
   
@@ -164,6 +165,10 @@ pointer-events: none;
         .menu {    
         width:390px;
     }
+
+    .modal-content{
+        font-size: 30px;    
+    }
 }
 @media only screen and (min-width:490px) {
     .cards .card {
@@ -173,6 +178,10 @@ pointer-events: none;
 
     .cards {    
         margin-left: 40px;
+    }
+
+    .modal-content{
+        font-size: 35px;    
     }
 }
 @media only screen and (min-width:550px) {
@@ -193,7 +202,11 @@ pointer-events: none;
     button{
         font-size: 15px;;
     }
+
+    .modal-content{
+        font-size: 41px;    
     }
+}
 @media only screen and (min-width:600px) {
     .cards .card {
         height: 120px;
@@ -209,19 +222,24 @@ pointer-events: none;
     }
 
     .modal-content{
-        padding: 40px;
+        padding: 44px;
         font-size: 36px;
-        }
+    }
 
     .close {
         font-size: 35px;
-        }
+    }
 }
 @media only screen and (min-width:650px) {
     .cards .card {
         height: 135px;
         width: 135px;
     } 
+
+    .modal-content{
+        font-size: 52px;
+        height: 40% ;   
+    }
 }
 @media only screen and (min-width:760px) {
     .cards .card {
@@ -240,8 +258,8 @@ pointer-events: none;
 
     .modal-content {
         padding: 50px;
-        font-size: 46px;
-        height: 30%;
+        font-size: 61px;
+        height: 50%;
     }
 
     .close {
@@ -272,8 +290,8 @@ pointer-events: none;
 
     .modal-content {
         padding: 50px;
-        font-size: 46px;
-        height: 30%;
+        font-size: 76px;
+        height: 60%;
         }
     
     .close {
@@ -300,8 +318,8 @@ pointer-events: none;
     }
     .modal-content {
         padding: 70px;
-        font-size: 56px;
-        height: 30%;
+        font-size: 81px;
+        height: 50%;
         }
     
     .close {
@@ -325,5 +343,9 @@ pointer-events: none;
     button{
         font-size: 23px;
         height:40px;
+    }
+
+    .modal-content{
+        font-size: 114px;    
     }
 }

@@ -124,9 +124,9 @@ const startTimer = (duration, display) => {
  const totalMatch = (match) => {
     totalMatched.push(match);
     let leng = totalMatched.length;
-    if(leng >= 10) { 
+    if(leng >= 1) { 
         modal.style.display = "block";
-        modalText.innerHTML = `Congratulations!!\n Your time was ${display.textContent} and it took you ${movesCount} moves to complete!`;
+        modalText.innerHTML = `Congratulations!!\n Time: ${display.textContent} Moves: ${movesCount}`;
     }
 };
 // click to close the modal
