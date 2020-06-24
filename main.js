@@ -6,6 +6,8 @@ const display = document.getElementById('timer');
 const modal = document.getElementById('modal');
 const modalText = document.getElementById('modal-text');
 const span = document.getElementsByClassName("close")[0];
+const audio = new Audio('cheeky_monkey_fun_app_playful_cheeky.mp3');
+
 
 const shopkinsImage = {
     card1: "./images/banan.jpg",
@@ -25,6 +27,7 @@ let totalMatched = [];
 let movesCount = 0;
 let timeout;
 let zero = 0;
+
 //loops through cards and asigns a eventlistner that triggers image change and the cardopen logic below
 for (const card of cards) {card.addEventListener('click', (event) =>{
     showCard(event);
@@ -60,7 +63,7 @@ const unmatched= () => {
     openedCards[0].src= "./images/shopkin.jpg";
     openedCards[1].src= "./images/shopkin.jpg";
     openedCards = [];
-},300);
+},250);
 };
 //counts the moves stored in moves count variable and displayed in moves html
 const moveCounter = () => {
@@ -94,6 +97,7 @@ const startGame =()=> {
     startTimer(zero, display);
     beginGame();  
     changeImageBack();
+    audio.play()
 };
 // changes images back to original
 const changeImageBack = () => {
@@ -124,7 +128,7 @@ const startTimer = (duration, display) => {
  const totalMatch = (match) => {
     totalMatched.push(match);
     let leng = totalMatched.length;
-    if(leng >= 1) { 
+    if(leng >= 10) { 
         modal.style.display = "block";
         modalText.innerHTML = `Congratulations!!\n Time: ${display.textContent} Moves: ${movesCount}`;
     }
