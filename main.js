@@ -90,7 +90,7 @@ const cardsInHtml = (cards) => {
         gameArea.appendChild(card);
     });
 };
-// starts the game off
+
 const startGame =()=> {
     moves.innerHTML =0;
     clearInterval(timeout);
@@ -98,6 +98,7 @@ const startGame =()=> {
     beginGame();  
     changeImageBack();
     audio.play()
+    audio.loop = true;
 };
 // changes images back to original
 const changeImageBack = () => {
