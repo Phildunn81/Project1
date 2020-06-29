@@ -97,8 +97,7 @@ const startGame =()=> {
     startTimer(zero, display);
     beginGame();  
     changeImageBack();
-    audio.play()
-    audio.loop = true;
+    
 };
 // changes images back to original
 const changeImageBack = () => {
@@ -153,7 +152,8 @@ window.onclick = function(event) {
 restart.addEventListener('click', startGame);
 // calls the start game function
 startGame();
-
+audio.play()
+audio.loop = true;
 
 
 
