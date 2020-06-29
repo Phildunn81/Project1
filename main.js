@@ -144,19 +144,12 @@ window.onclick = function(event) {
       modal.style.display = "none";
     }
 };
-  
-    // document.getElementById("myAudio");
-    // new Audio
-
 // restart button
 restart.addEventListener('click', startGame);
 // calls the start game function
 startGame();
 audio.play()
 audio.loop = true;
-
-
-
 
 //pause
 // const textWrapper = document.querySelector('.title');
