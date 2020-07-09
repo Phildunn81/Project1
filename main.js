@@ -128,9 +128,9 @@ const startTimer = (duration, display) => {
  const totalMatch = (match) => {
     totalMatched.push(match);
     let leng = totalMatched.length;
-    if(leng >= 10) { 
+    if(leng >= 1) { 
         modal.style.display = "block";
-        modalText.innerHTML = `Congratulations!!\n Time: ${display.textContent} Moves: ${movesCount}`;
+        modalText.innerHTML = `Congratulations You Finished!!\n Time: ${display.textContent} Moves: ${movesCount}`;
     }
 };
 // click to close the modal
@@ -152,5 +152,4 @@ audio.play()
 audio.loop = true;
 
 //pause
-// const textWrapper = document.querySelector('.title');
-// textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
