@@ -128,7 +128,7 @@ const startTimer = (duration, display) => {
  const totalMatch = (match) => {
     totalMatched.push(match);
     let leng = totalMatched.length;
-    if(leng >= 1) { 
+    if(leng >= 10) { 
         modal.style.display = "block";
         modalText.innerHTML = `Congratulations You Finished!!\n Time: ${display.textContent} Moves: ${movesCount}`;
     }
